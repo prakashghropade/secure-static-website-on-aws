@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Platform | S3 · CloudFront · Terraform</title>
+    <meta name="description" content="A blazing-fast static website deployed on AWS S3 and CloudFront, provisioned with Terraform Infrastructure as Code.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Animated Canvas Background -->
+    <canvas id="starCanvas"></canvas>
+
+    <!-- Floating Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="wrapper">
+
+        <!-- NAV -->
+        <nav class="navbar">
+            <div class="nav-logo">
+                <span class="logo-icon">⬡</span>
+                <span class="logo-text">AWS<em>Cloud</em></span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#architecture" class="nav-link">Architecture</a>
+                <a href="#demo" class="nav-link">Demo</a>
+            </div>
+            <div class="nav-badge">
+                <span class="badge-dot"></span>
+                <span id="status">Live</span>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <header class="hero" id="home">
+            <div class="hero-tag">☁️ &nbsp; Serverless · Edge · IaC</div>
+            <h1 class="hero-title">
+                Deploy at the<br>
+                <span class="gradient-text">Speed of Light</span>
+            </h1>
+            <p class="hero-subtitle">
+                Static website powered by <strong>Amazon S3</strong>, accelerated by <strong>CloudFront</strong>,<br>
+                and provisioned end-to-end with <strong>Terraform</strong>.
+            </p>
+            <div class="hero-cta">
+                <button id="exploreBtn" class="btn btn-glow">Explore Stack</button>
+                <button id="counterButton" class="btn btn-outline">
+                    <span class="btn-icon">⚡</span> Interactions: <span id="counter">0</span>
+                </button>
+            </div>
+
+            <!-- Floating metrics -->
+            <div class="hero-metrics">
+                <div class="metric">
+                    <span class="metric-value">99.99<em>%</em></span>
+                    <span class="metric-label">Uptime SLA</span>
+                </div>
+                <div class="metric-divider"></div>
+                <div class="metric">
+                    <span class="metric-value">&lt;50<em>ms</em></span>
+                    <span class="metric-label">Edge Latency</span>
+                </div>
+                <div class="metric-divider"></div>
+                <div class="metric">
+                    <span class="metric-value">450<em>+</em></span>
+                    <span class="metric-label">PoP Locations</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- FEATURES -->
+        <section class="features" id="features">
+            <div class="section-label">— STACK —</div>
+            <h2 class="section-title">Built on AWS Primitives</h2>
+
+            <div class="cards-grid">
+                <div class="glass-card card-s3">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/><path d="M12 12v.01"/><path d="M8 12v.01"/><path d="M16 12v.01"/></svg>
+                    </div>
+                    <h3>Amazon S3</h3>
+                    <p>Infinitely scalable object storage serving static assets with high durability and low cost. Your origin — always on.</p>
+                    <div class="card-tags">
+                        <span class="tag">99.999999999%</span>
+                        <span class="tag">Durability</span>
+                    </div>
+                </div>
+
+                <div class="glass-card card-cf">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <h3>CloudFront CDN</h3>
+                    <p>Global edge network that caches your content close to every user. Sub-50ms delivery at massive scale.</p>
+                    <div class="card-tags">
+                        <span class="tag">450+ Edge PoPs</span>
+                        <span class="tag">TLS/HTTPS</span>
+                    </div>
+                </div>
+
+                <div class="glass-card card-tf">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 2 17 12 22 22 17 22 7 12 2"/><polyline points="2 7 12 12 22 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>
+                    </div>
+                    <h3>Terraform IaC</h3>
+                    <p>Every AWS resource declared as code — repeatable, version-controlled, auditable. One <code>terraform apply</code> to rule them all.</p>
+                    <div class="card-tags">
+                        <span class="tag">Declarative</span>
+                        <span class="tag">GitOps Ready</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARCHITECTURE FLOW -->
+        <section class="architecture" id="architecture">
+            <div class="section-label">— ARCHITECTURE —</div>
+            <h2 class="section-title">How Requests Flow</h2>
+
+            <div class="arch-flow">
+                <div class="arch-node">
+                    <div class="node-icon">🧑‍💻</div>
+                    <div class="node-title">User</div>
+                    <div class="node-sub">Browser / Device</div>
+                </div>
+                <div class="arch-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-label">DNS lookup</div>
+                </div>
+                <div class="arch-node node-highlight">
+                    <div class="node-icon">⚡</div>
+                    <div class="node-title">CloudFront</div>
+                    <div class="node-sub">Edge PoP • Cache hit</div>
+                </div>
+                <div class="arch-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-label">Origin fetch</div>
+                </div>
+                <div class="arch-node">
+                    <div class="node-icon">🪣</div>
+                    <div class="node-title">S3 Bucket</div>
+                    <div class="node-sub">Static origin</div>
+                </div>
+            </div>
+
+            <div class="arch-note">
+                <span class="mono">$ terraform apply</span> — provisions all resources automatically
+            </div>
+        </section>
+
+        <!-- INTERACTIVE DEMO -->
+        <section class="demo" id="demo">
+            <div class="section-label">— DEMO —</div>
+            <h2 class="section-title">Interactive Playground</h2>
+
+            <div class="demo-grid">
+                <div class="demo-panel">
+                    <div class="panel-header">
+                        <span class="panel-dot red"></span>
+                        <span class="panel-dot yellow"></span>
+                        <span class="panel-dot green"></span>
+                        <span class="panel-title">theme.control</span>
+                    </div>
+                    <div class="panel-body">
+                        <p class="panel-desc">Toggle between dark and light modes. Preference is persisted in <code>localStorage</code>.</p>
+                        <button id="colorButton" class="btn btn-glow full-width">🌗 &nbsp; Switch Theme</button>
+                    </div>
+                </div>
+
+                <div class="demo-panel">
+                    <div class="panel-header">
+                        <span class="panel-dot red"></span>
+                        <span class="panel-dot yellow"></span>
+                        <span class="panel-dot green"></span>
+                        <span class="panel-title">performance.log</span>
+                    </div>
+                    <div class="panel-body mono-output" id="perfLog">
+                        <div class="log-line"><span class="log-prefix">›</span> Initialising...</div>
+                    </div>
+                </div>
+
+                <div class="demo-panel">
+                    <div class="panel-header">
+                        <span class="panel-dot red"></span>
+                        <span class="panel-dot yellow"></span>
+                        <span class="panel-dot green"></span>
+                        <span class="panel-title">status.monitor</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="status-grid">
+                            <div class="status-row">
+                                <span>S3</span>
+                                <span class="status-pill green-pill">Healthy</span>
+                            </div>
+                            <div class="status-row">
+                                <span>CloudFront</span>
+                                <span class="status-pill green-pill">Healthy</span>
+                            </div>
+                            <div class="status-row">
+                                <span>DNS</span>
+                                <span class="status-pill green-pill">Resolved</span>
+                            </div>
+                            <div class="status-row">
+                                <span>TLS/SSL</span>
+                                <span class="status-pill green-pill">Valid</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-logo">
+                <span class="logo-icon">⬡</span>
+                <span class="logo-text">AWS<em>Cloud</em></span>
+            </div>
+            <p class="footer-copy">Built with <span class="heart">♥</span> using S3 · CloudFront · Terraform</p>
+            <p class="footer-meta">© 2025 AWS Static Website Demo &nbsp;|&nbsp; Infrastructure as Code</p>
+        </footer>
+
+    </div><!-- /wrapper -->
+
+    <script src="script.js"></script>
+</body>
+</html>
