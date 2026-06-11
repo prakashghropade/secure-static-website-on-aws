@@ -20,7 +20,7 @@ resource "aws_cloudfront_origin_access_control" "oac" {
     description = "OAC for  static website"
     origin_access_control_origin_type = "s3"
     signing_behavior = "always"
-    signing_protocol = "signv4"
+    signing_protocol = "sigv4"
 }
 
 # bucket plicies
@@ -42,7 +42,7 @@ resource "aws_s3_bucket_policy" "website" {
 
               Condition = {
                 StringEquals = {
-                    "AWS:SourceArn" = aws_cloudfront_distribution.website.arn
+                    "AWS:SourceArn" = aws_cloudfront_distribution.s3_distribution.arn
                 }
               }
           }
@@ -121,7 +121,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   viewer_certificate {
     cloudfront_default_certificate = true
   }
-  
+
 }
 
 
